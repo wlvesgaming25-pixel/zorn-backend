@@ -1,0 +1,971 @@
+@font-face {
+  font-family: 'GeomGraphicFamily';
+  src: url('fonts/fonnts.com-Geom_Graphic_Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Apply to everything */
+* {
+  font-family: 'GeomGraphicFamily', Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: #1c1c1c;
+  color: #f2f2f2;
+  overflow-x: hidden;
+}
+
+/* ========================= */
+/*         HEADER           */
+header {
+  background-color: #222;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  position: relative;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease;
+}
+
+header.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+header img {
+  height: 50px;
+}
+
+/* NAVIGATION */
+nav {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 25px;
+}
+
+nav ul li a {
+  color: #f2f2f2;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+  position: relative;
+  font-size: 1.1em;
+}
+
+nav ul li a:hover {
+  color: #ff4500;
+}
+
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: #ff4500;
+  transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+}
+
+/* MOBILE MENU */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  height: 3px;
+  width: 25px;
+  background: #f2f2f2;
+  margin: 4px 0;
+  border-radius: 2px;
+}
+
+/* HEADER BUTTONS */
+.header-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.header-buttons a,
+.header-buttons button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1em;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: background 0.3s, transform 0.2s;
+  text-decoration: none;
+}
+
+.header-buttons a:hover,
+.header-buttons button:hover {
+  transform: scale(1.05);
+}
+
+.orange-btn {
+  background-color: #ff6600;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+.orange-btn:hover {
+  background-color: #e65c00;
+  box-shadow: 0 0 12px rgba(255, 102, 0, 0.7);
+}
+
+.header-buttons .grey-btn {
+  background-color: #333;
+  color: white;
+}
+
+.header-buttons .grey-btn:hover {
+  background-color: #555;
+}
+
+.header-buttons .btn-icon {
+  width: 16px;
+  height: 16px;
+}
+
+/* ========================= */
+/*       HOMEPAGE HERO       */
+.homepage .hero {
+  position: relative;
+  background: url('zorn-thingy.png') no-repeat center center/cover;
+  height: 85vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 1.2s ease;
+  overflow: hidden;
+}
+
+.homepage .hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.4));
+  z-index: 1;
+}
+
+.homepage .hero.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.homepage .hero h1,
+.homepage .hero button {
+  position: relative;
+  z-index: 2;
+}
+
+.homepage .hero h1 {
+  font-size: 3.2em;
+  color: #ff6347;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  text-shadow: none;
+}
+
+.homepage .hero button {
+  margin-top: 25px;
+  padding: 14px 28px;
+  background: #ff4500;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+  animation: fadeUp 1.2s ease forwards 0.5s;
+  opacity: 0;
+}
+
+.homepage .hero.visible button {
+  opacity: 1;
+}
+
+.homepage .hero button:hover {
+  background: #e63900;
+  transform: scale(1.07);
+  box-shadow: 0 0 15px rgba(255, 69, 0, 0.6);
+}
+
+@keyframes fadeUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ========================= */
+/*         ABOUT PAGE        */
+.about-page {
+  padding: 80px 20px;
+  text-align: center;
+  background: url('zorn-pattern.png') repeat;
+  background-size: auto; /* keeps the image at its original size */
+}
+
+.about-page h1 {
+  font-size: 3em;
+  color: #ff4500;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.about-page .subtitle {
+  color: #ccc;
+  font-size: 1.2em;
+  margin-bottom: 50px;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.about-card {
+  background: rgba(34, 34, 34, 0.9);
+  padding: 30px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 69, 0, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  text-align: left;
+}
+
+/* Small orange line above Milestones */
+.about-page .milestones-separator {
+  width: 60px;          /* short line */
+  height: 4px;          /* thickness */
+  background-color: #ff6600;  /* orange color */
+  margin: 50px auto 20px auto; /* spacing above & below */
+  border-radius: 2px;   /* slightly rounded edges */
+}
+
+
+.about-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(255, 69, 0, 0.25);
+  border-color: rgba(255, 69, 0, 0.6);
+}
+
+.about-card h2 {
+  color: #ff6347;
+  margin-bottom: 12px;
+  font-size: 1.6em;
+}
+
+.about-card p {
+  color: #bbb;
+  line-height: 1.6;
+  font-size: 1em;
+}
+
+/* ========================= */
+/*          STATS           */
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 45px;
+  flex-wrap: wrap;
+}
+
+.stat {
+  background: linear-gradient(145deg, #181818, #202020);
+  padding: 25px;
+  border-radius: 12px;
+  flex: 1;
+  max-width: 260px;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.9s ease, transform 0.3s ease;
+  border: 1px solid rgba(255, 69, 0, 0.2);
+}
+
+.stat.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.stat:hover {
+  transform: scale(1.07);
+  border-color: rgba(255, 69, 0, 0.6);
+  box-shadow: 0 0 15px rgba(255, 69, 0, 0.3);
+}
+
+.stat h3 {
+  color: #ff4500;
+  font-size: 2.2em;
+  margin-bottom: 8px;
+}
+
+/* ========================= */
+/*          FOOTER          */
+/* ========================= */
+/*          FOOTER FIX       */
+/* ========================= */
+.footer {
+  background-color: #111;
+  padding: 50px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  color: #888;
+  border-top: 1px solid #222;
+}
+
+.footer h4 {
+  color: #ff6347;
+  margin-bottom: 15px;
+  text-shadow: 0 0 8px rgba(255, 99, 71, 0.4);
+  text-align: left;
+}
+
+.footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+
+.footer ul li {
+  margin-bottom: 6px;
+}
+
+.footer ul li a {
+  color: #888;
+  text-decoration: none;
+  transition: color 0.3s, letter-spacing 0.3s;
+}
+
+.footer ul li a:hover {
+  color: #ff4500;
+  letter-spacing: 1px;
+}
+
+.copyright {
+  text-align: center;
+  margin-top: 25px;
+  padding: 15px 0;
+  font-size: 0.9em;
+  color: #666;
+  border-top: 1px solid #222;
+}
+
+/* Fade-in animations if used on other pages */
+.footer.fade-in,
+.copyright.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 1s ease;
+}
+
+.footer.fade-in.visible,
+.copyright.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* ========================= */
+/*     RESPONSIVE NAV       */
+@media (max-width: 900px) {
+  nav ul {
+    display: none;
+    flex-direction: column;
+    background-color: #222;
+    position: absolute;
+    top: 70px;
+    right: 40px;
+    padding: 20px;
+    border-radius: 8px;
+  }
+
+  nav ul.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: flex;
+    position: absolute;
+    right: 20px;
+  }
+
+  .header-buttons {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 2.1em;
+  }
+
+  .stats {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* ========================= */
+/*       ROSTER PAGE STYLE   */
+.roster-section {
+  padding: 80px 20px;
+  text-align: center;
+  background: url('zorn-pattern.png') repeat;
+  background-size: auto; /* keeps the image at its original size */
+}
+.roster-section h1 {
+  font-size: 3em;
+  color: #ff4500;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.roster-section .subtitle {
+  color: #ccc;
+  font-size: 1.2em;
+  margin-bottom: 50px;
+}
+
+.roster-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.roster-card {
+  background: linear-gradient(145deg, #181818, #202020);
+  padding: 30px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 69, 0, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  text-align: center;
+  overflow: hidden;
+}
+
+.roster-card img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  object-fit: cover;
+  border: 2px solid rgba(255,69,0,0.3);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.roster-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 10px 25px rgba(255, 69, 0, 0.4);
+  border-color: rgba(255, 69, 0, 0.6);
+}
+
+.roster-card:hover img {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(255, 69, 0, 0.6);
+}
+
+.roster-card h2 {
+  color: #ff6347;
+  margin-bottom: 6px;
+  font-size: 1.5em;
+}
+
+.roster-card p {
+  color: #bbb;
+  font-size: 1em;
+}
+
+.roster-section-title {
+  color: #ffffff; /* white text */
+  text-align: center; /* center the text */
+  margin-top: 60px;   /* space from the previous section's boxes */
+  margin-bottom: 20px; /* closer to the boxes below */
+}
+
+.role-tag {
+  display: block;
+  font-size: 0.9em;
+  color: #ff6600;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+
+/* ========================= */
+/*       FLAG IN ROSTER CARD */
+.roster-card .flag {
+  display: block;
+  margin: 4px auto 6px auto; /* centered under PFP */
+  height: 1em;               /* slightly smaller than text */
+  width: auto;               /* maintain aspect ratio */
+  border-radius: 0 !important;   /* remove rounding */
+  box-shadow: none !important;   /* remove any glow */
+  border: none !important;       /* remove any stroke */
+}
+
+.roster-card .profile-link-img {
+  width: 24px; /* same size as the flag */
+  height: auto;
+  display: inline-block;
+  margin-top: 6px;
+  vertical-align: middle;
+  border: none;
+  box-shadow: none !important; /* override any inherited glow */
+  background: none;
+  transition: none;
+  pointer-events: auto; /* ensures hover on card doesn’t affect this */
+}
+
+.roster-card .profile-link-img:hover {
+  transform: scale(1.1); /* optional small hover effect */
+}
+
+.roster-card a {
+  text-decoration: none; /* remove underline/lines */
+  display: inline-block; /* ensures layout stays correct */
+}
+
+.roster-card a img {
+  border-radius: 0;   /* remove roundness */
+  border: none;       /* remove any stroke */
+  box-shadow: none;   /* remove glow */
+  width: 24px;        /* adjust size like the flag */
+  height: 24px;       /* adjust size like the flag */
+  object-fit: contain;
+  transition: none;   /* remove hover effects */
+}
+
+.roster-bottom-wrapper {
+  position: relative; /* needed for absolute positioning */
+  height: 100%;       /* fill the section height */
+}
+
+.roster-bottom-wrapper .roster-grid {
+  position: absolute;
+  bottom: 0;            /* stick to the bottom */
+  left: 50%;            /* center horizontally */
+  transform: translateX(-50%);
+  justify-content: center; /* center cards in the grid */
+}
+
+
+/* ========================= */
+/*       MILESTONES (SCOPED) */
+.milestones-page .milestones {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.milestones-page .milestone {
+  background: linear-gradient(145deg, #181818, #202020);
+  padding: 20px 25px;
+  border-radius: 14px;
+  border-left: 6px solid #ff4500;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.milestones-page .milestone:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 15px rgba(255, 69, 0, 0.3);
+}
+
+.milestones-page .milestone h4 {
+  color: #ff4500;
+  font-size: 1em;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.milestones-page .milestone h3 {
+  color: #fff;
+  margin: 0 0 8px 0;
+  font-size: 1.5em;
+}
+
+.milestones-page .milestone p {
+  color: #bbb;
+  margin: 0;
+  line-height: 1.5;
+  font-size: 1em;
+}
+
+/* ========================= */
+/* HOMEPAGE ABOUT SECTION */
+.homepage .about {
+  max-width: 900px;
+  margin: 60px auto;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.homepage .about h2 {
+  font-size: 2.4em;
+  color: #ff6600;
+  margin-bottom: 20px;
+}
+
+.homepage .about p {
+  font-size: 1.1em;
+  color: #f2f2f2;
+  line-height: 1.8;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* ========================= */
+/* APPLY PAGE HERO & LAYOUT */
+.applypage {
+  background: url('zorn-pattern.png') no-repeat center center/cover;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.applypage header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: rgba(34,34,34,0.95);
+  padding: 15px 40px;
+}
+
+/* HERO SECTION */
+.applypage .hero {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  color: #f2f2f2;
+}
+
+.applypage .hero h1.join-legacy {
+  font-size: 3em; /* slightly bigger */
+  color: #ff6600; /* orange */
+  margin-bottom: 10px;
+}
+
+.applypage .hero p {
+  font-size: 1.3em;
+  margin-top: 10px;
+}
+
+/* APPLICATION BOXES */
+.applypage .application {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  max-width: 1400px;
+  margin: 0 auto 50px auto;
+  padding: 0 20px;
+}
+
+.applypage .application-left,
+.applypage .application-right {
+  background: linear-gradient(145deg, #181818, #202020); /* same gradient as roster-card */
+  padding: 30px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 69, 0, 0.25);
+  text-align: center;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  overflow: hidden;
+}
+
+/* Make boxes wider and closer to edges */
+.applypage .application-left {
+  flex: 0 0 48%;
+}
+
+.applypage .application-right {
+  flex: 0 0 48%;
+}
+
+/* Headers in boxes */
+.applypage .application-left h2,
+.applypage .application-right h2 {
+  font-size: 1.8em;
+  color: #ff6600;
+  margin-bottom: 15px;
+}
+
+/* Positions buttons */
+.applypage .positions button {
+  display: block;
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 12px 0;
+  background-color: #ff6600;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.applypage .positions button:hover {
+  background-color: #e65c00;
+  transform: scale(1.03);
+}
+
+/* Requirements list */
+.applypage .requirements {
+  margin-top: 25px;
+}
+
+.applypage .requirements h4 {
+  color: #ff6600;
+  margin-bottom: 10px;
+}
+
+.applypage .requirements ul {
+  list-style: disc;
+  padding-left: 20px;
+  color: #f2f2f2;
+}
+
+.applypage .requirements ul li {
+  margin-bottom: 8px;
+}
+
+/* Application form fields */
+.applypage .application-right #application-form input,
+.applypage .application-right #application-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #ff6600;
+  background: #222;
+  color: #f2f2f2;
+  font-size: 1em;
+  font-family: 'GeomGraphicFamily', Arial, sans-serif;
+}
+
+.applypage .application-right #application-form button {
+  padding: 12px 20px;
+  background-color: #ff6600;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+.applypage .application-right #application-form button:hover {
+  background-color: #e65c00;
+  transform: scale(1.03);
+}
+
+.applypage footer {
+  margin-top: auto; /* push footer to bottom */
+}
+
+/* RESPONSIVE */
+@media (max-width: 1200px) {
+  .applypage .application-left,
+  .applypage .application-right {
+    flex: 0 0 48%;
+  }
+}
+
+@media (max-width: 900px) {
+  .applypage .application {
+    flex-direction: column;
+    margin: 30px 20px;
+  }
+
+  .applypage .application-left,
+  .applypage .application-right {
+    min-width: 100%;
+  }
+}
+
+.checkbox-group {
+  display: flex;
+  flex-direction: column; /* stack each checkbox+text vertically */
+  gap: 10px; /* space between each option */
+}
+
+.checkbox-group label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-direction: row-reverse; /* checkbox after text */
+  white-space: nowrap; /* prevents text from breaking into multiple lines */
+  text-decoration: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+.checkbox-group input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+}
+
+
+/* ========================= */
+/*       PARTNERS PAGE       */
+.partners-section {
+  text-align: center;
+  padding: 80px 20px;
+  background: url('zorn-pattern.png') repeat;
+  background-size: auto; /* keeps original size */
+  background-position: top center;
+}
+
+.partners-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  font-weight: 700;
+  position: relative;
+  display: inline-block;
+  color: #ff4500;
+}
+
+.partners-section h2::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: #ff4500;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+.partners-section p {
+  color: #ccc;
+  margin-bottom: 50px;
+}
+
+.partners-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ========================= */
+/*       PARTNERS PAGE FIX   */
+/* ========================= */
+/* PARTNERS CARDS - MATCH ROSTER */
+.partner-card {
+  background: linear-gradient(145deg, #181818, #202020); /* same gradient as roster-card */
+  padding: 30px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 69, 0, 0.25);
+  text-align: center;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  overflow: hidden;
+}
+
+.partner-card img {
+  width: auto;            /* keep natural width */
+  height: 100px;          /* uniform height */
+  border-radius: 0;       /* no circle crop */
+  object-fit: contain;    /* keep proportions */
+  border: none;           /* remove stroke */
+  box-shadow: none;       /* remove glow */
+  margin-bottom: 15px;
+  transition: transform 0.3s;
+}
+
+.partner-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  border-color: rgba(255, 69, 0, 0.6);
+  box-shadow: 0 10px 25px rgba(255, 69, 0, 0.25); /* subtle shadow, not glow */
+}
+
+.partner-card h3 {
+  color: #ff6347;
+  margin-bottom: 6px;
+  font-size: 1.5em;
+}
+
+.partner-card p {
+  color: #bbb;
+  font-size: 1em;
+}
+
+.stats {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 25px;
+  color: #fff;
+}
+
+.partner-card .btn {
+  display: inline-block;
+  text-decoration: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-weight: 600;
+  background: #ff4500;
+  color: #fff;
+  transition: 0.3s;
+}
+
+.partner-card .btn:hover {
+  background: #e63e00;
+}
+
+/* Footer fix for Partners page */
+footer, .copyright {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+

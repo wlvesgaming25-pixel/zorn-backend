@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zorn HQ | Apply</title>
+  <link rel="icon" type="image/png" href="ZornLogofavicon.png" sizes="64x64">
+  <link rel="stylesheet" href="style.css">
+  <script src="application.js" defer></script>
+</head>
+<body class="applypage">
+
+<header>
+  <a href="http://localhost:3000/Homepage.html">
+  <img src="ZornLogo.png" alt="Zorn Logo">
+  </a>
+
+  <nav>
+    <div class="menu-toggle" onclick="document.querySelector('nav ul').classList.toggle('active')">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <ul>
+      <li><a href="http://localhost:3000/Homepage.html">Home</a></li>
+      <li><a href="http://localhost:3000/About.html">About</a></li>
+      <li><a href="http://localhost:3000/Roster.html">Roster</a></li>
+      <li><a href="http://localhost:3000/Partners.html">Partners</a></li>
+    </ul>
+  </nav>
+
+  <div class="header-buttons">
+    <a href="http://localhost:3000/Apply.html" class="orange-btn">
+      <img src="zorn-stinks.png" alt="Icon" class="btn-icon">
+      Join Now
+    </a>
+    <button class="grey-btn">
+    <a href="http://localhost:3000/Store.html" class="grey-btn">
+      <img src="zorn-stinks2.png" alt="Icon" class="btn-icon">
+      Store
+    </a>
+    </button>
+  </div>
+</header>
+
+<section class="hero">
+  <h1 class="join-legacy">Join the Legacy</h1>
+
+  <!-- Orange bar like Partners page -->
+  <div class="hero-bar"></div>
+
+  <p style="z-index:2; color:#f2f2f2;">Apply now and be part of Team Zorn.</p>
+</section>
+
+
+<section class="application">
+  <div class="application-left">
+    <h2>Available Positions</h2>
+    <div class="positions">
+      <button onclick="loadForm('freestylers')">Freestylers</button>
+      <button onclick="loadForm('cliphitters')">Cliphitters</button>
+      <button onclick="loadForm('editor')">Editors</button>
+      <button onclick="loadForm('designer')">Designers</button>
+      <button onclick="loadForm('creator')">Creators</button>
+      <button onclick="loadForm('other')">Other</button>
+    </div>
+
+    <div class="requirements">
+      <h4>Requirements</h4>
+      <ul id="requirements-list">
+        <li class="placeholder-text">Select a position to view requirements.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="application-right">
+    <h2>Application Form</h2>
+    <div id="application-form">
+      <p class="placeholder-text">Choose a position to start your application.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div>
+    <h4>Connect With Us</h4>
+    <ul>
+      <li><a href="https://x.com/ZornHQ">Twitter</a></li>
+      <li><a href="https://www.tiktok.com/@zornhq25">TikTok</a></li>
+      <li><a href="https://discord.gg/VNb82VRYna">Discord</a></li>
+      <li><a href="https://www.youtube.com/@ZornHQ">YouTube</a></li>
+      <li><a href="https://www.twitch.tv/zornhq">Twitch</a></li>
+    </ul>
+  </div>
+  <div>
+    <h4>Quick Links</h4>
+    <ul>
+      <li><a href="http://localhost:3000/Homepage.html">Home</a></li>
+      <li><a href="http://localhost:3000/About.html">About Us</a></li>
+      <li><a href="#">Merchandise</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </div>
+  <div>
+    <h4>Join Zorn</h4>
+    <ul>
+      <li><a href="http://localhost:3000/Apply.html">Apply Now</a></li>
+      <li><a href="http://localhost:3000/Roster.html">Roster</a></li>
+    </ul>
+  </div>
+  <div>
+    <h4>Our Partners</h4>
+    <ul>
+      <li><a href="https://drinkrez.com/">REZ Energy</a></li>
+    </ul>
+  </div>
+</footer>
+
+<div class="copyright">
+  © 2025 Team Zorn. All rights reserved. | Privacy Policy | Terms of Service
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('header, .hero, .application, .footer, .copyright')
+    .forEach(el => observer.observe(el));
+});
+</script>
+
+</body>
+</html>

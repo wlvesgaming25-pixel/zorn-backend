@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zorn HQ | Partners</title>
+  <link rel="icon" type="image/png" href="ZornLogofavicon.png" sizes="64x64">
+    <link rel="stylesheet" href="style.css">
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #1c1c1c;
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    /* Fade-in Animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Header */
+    header {
+      background: #2a2a2a;
+      padding: 15px 50px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    header .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    header .logo img {
+      height: 40px;
+    }
+
+    header .logo h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #ff4500;
+    }
+
+    header nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    header nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    header nav ul li a:hover {
+      color: #ff4500;
+    }
+
+    header .buttons {
+      display: flex;
+      gap: 15px;
+    }
+
+    header .buttons a {
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      transition: 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .join-btn {
+      background: #ff4500;
+      color: #fff;
+    }
+
+    .join-btn:hover {
+      background: #e63e00;
+    }
+
+    .store-btn {
+      background: #3a3a3a;
+      color: #fff;
+    }
+
+    .store-btn:hover {
+      background: #4a4a4a;
+    }
+
+    /* Partners Section */
+    .partners-section {
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    .partners-section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      font-weight: 700;
+      position: relative;
+      display: inline-block;
+    }
+
+    .partners-section h2::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: #ff4500;
+      margin: 10px auto 0;
+      border-radius: 2px;
+    }
+
+    .partners-section p {
+      color: #ccc;
+      margin-bottom: 50px;
+    }
+
+    .partners-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .partner-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.6);
+    }
+
+    .partner-card img {
+      max-height: 50px;
+      margin-bottom: 20px;
+    }
+
+    /* REZ Logo custom size */
+    .rez-logo {
+      max-height: 120px; /* make this logo larger */
+      width: auto;
+    }
+
+    .partner-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #ff4500;
+      color: #fff;
+      font-size: 12px;
+      padding: 5px 12px;
+      border-radius: 30px;
+      margin-bottom: 15px;
+    }
+
+    .partner-card p {
+      color: #bbb;
+      font-size: 14px;
+      margin-bottom: 25px;
+    }
+
+    .stats {
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 25px;
+      color: #fff;
+    }
+
+    .partner-card .btn {
+      display: inline-block;
+      text-decoration: none;
+      padding: 12px 25px;
+      border-radius: 8px;
+      font-weight: 600;
+      background: #ff4500;
+      color: #fff;
+      transition: 0.3s;
+    }
+
+    .partner-card .btn:hover {
+      background: #e63e00;
+    }
+
+    /* Footer */
+    footer {
+      background: #2a2a2a;
+      padding: 20px;
+      text-align: center;
+      margin-top: 50px;
+      font-size: 14px;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="fade-in">
+    <div class="logo">
+        <a href="http://localhost:3000/Homepage.html">
+  <img src="ZornLogo.png" alt="Zorn Logo">
+  </a>
+    </div>
+    <nav>
+    <ul>
+      <li><a href="http://localhost:3000/Homepage.html">Home</a></li>
+      <li><a href="http://localhost:3000/About.html">About</a></li>
+      <li><a href="http://localhost:3000/Roster.html">Roster</a></li>
+      <li><a href="http://localhost:3000/Partners.html">Partners</a></li>
+    </ul>
+    </nav>
+  <div class="header-buttons">
+    <a href="http://localhost:3000/Apply.html" class="orange-btn">
+      <img src="zorn-stinks.png" alt="Icon" class="btn-icon">
+      Join Now
+    </a>
+    <button class="grey-btn">
+    <a href="http://localhost:3000/Store.html" class="grey-btn">
+      <img src="zorn-stinks2.png" alt="Icon" class="btn-icon">
+      Store
+    </a>
+    </button>
+  </div>
+  </header>
+
+  <!-- Partners Section -->
+  <section class="partners-section fade-in">
+    <h2>OUR PARTNERS</h2>
+    <p>Our trusted partners fuel our mission to innovate and lead in gaming.</p>
+ 
+   <!--   <div class="partners-grid">
+      <div class="partner-card fade-in">
+        <img src="https://via.placeholder.com/120x40?text=TRUE" alt="2nd Partner">
+        <h3>2nd Partner</h3>
+        <span class="tag">Official  Partner</span>
+        <p>???</p>
+        <div class="stats">??+ Stores | ?+ Years</div>
+        <a href="#" class="btn">Shop Now</a>
+      </div> -->
+
+      <!-- Partner 2 -->
+      <div class="partner-card fade-in">
+        <img src="rez-logo.png" alt="REZ Energy" class="rez-logo">
+        <h3>REZ Energy</h3>
+        <span class="tag">Official Energy Drink</span>
+        <p>Performance energy for gamers.</p>
+        <div class="stats">1 Flavor | 0 Sugar</div>
+        <a href="https://drinkrez.com/" class="btn">Shop Now</a>
+      </div>
+    </div>
+  </section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div>
+    <h4>Connect With Us</h4>
+    <ul>
+      <li><a href="https://x.com/ZornHQ">Twitter</a></li>
+      <li><a href="https://www.tiktok.com/@zornhq25">TikTok</a></li>
+      <li><a href="https://discord.gg/VNb82VRYna">Discord</a></li>
+      <li><a href="https://www.youtube.com/@ZornHQ">YouTube</a></li>
+      <li><a href="https://www.twitch.tv/zornhq">Twitch</a></li>
+    </ul>
+  </div>
+  <div>
+    <h4>Quick Links</h4>
+    <ul>
+      <li><a href="http://localhost:3000/Homepage.html">Home</a></li>
+      <li><a href="http://localhost:3000/About.html">About Us</a></li>
+      <li><a href="#">Merchandise</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </div>
+  <div>
+    <h4>Join Zorn</h4>
+    <ul>
+      <li><a href="http://localhost:3000/Apply.html">Apply Now</a></li>
+      <li><a href="http://localhost:3000/Roster.html">Roster</a></li>
+    </ul>
+  </div>
+  <div>
+    <h4>Our Partners</h4>
+    <ul>
+      <li><a href="https://drinkrez.com/">REZ Energy</a></li>
+    </ul>
+  </div>
+</footer>
+
+<div class="copyright">
+  © 2025 Team Zorn. All rights reserved. | Privacy Policy | Terms of Service
+</div>
+
+
+
+  <!-- Intersection Observer for animations -->
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
+
+</body>
+</html>

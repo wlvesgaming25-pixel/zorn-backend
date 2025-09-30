@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zorn HQ | Store</title>
+  <link rel="icon" type="image/png" href="ZornLogofavicon.png" sizes="64x64">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="homepage">
+
+<header>
+  <!-- Logo -->
+    <a href="http://localhost:3000/Homepage.html">
+  <img src="ZornLogo.png" alt="Zorn Logo">
+  </a>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="menu-toggle" onclick="document.querySelector('nav ul').classList.toggle('active')">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <ul>
+      <li><a href="http://localhost:3000/Homepage.html">Home</a></li>
+      <li><a href="http://localhost:3000/About.html">About</a></li>
+      <li><a href="http://localhost:3000/Roster.html">Roster</a></li>
+      <li><a href="http://localhost:3000/Partners.html">Partners</a></li>
+    </ul>
+  </nav>
+
+  <!-- Buttons -->
+  <div class="header-buttons">
+    <a href="http://localhost:3000/Apply.html" class="orange-btn">
+      <img src="zorn-stinks.png" alt="Icon" class="btn-icon">
+      Join Now
+    </a>
+    <button class="grey-btn">
+    <a href="http://localhost:3000/Store.html" class="grey-btn">
+      <img src="zorn-stinks2.png" alt="Icon" class="btn-icon">
+      Store
+    </a>
+    </button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>Store Coming Soon</h1>
+  <a href="http://localhost:3000/Apply.html">
+  <button>Apply Now</button>
+</a>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div>
+    <h4>Connect With Us</h4>
+    <ul>
+      <li><a href="https://x.com/ZornHQ">Twitter</a></li>
+      <li><a href="https://www.tiktok.com/@zornhq25">TikTok</a></li>
+      <li><a href="https://discord.gg/VNb82VRYna">Discord</a></li>
+      <li><a href="https://www.youtube.com/@ZornHQ">YouTube</a></li>
+      <li><a href="https://www.twitch.tv/zornhq">Twitch</a></li>
+    </ul>
+  </div>
+  <div>
+    <h4>Quick Links</h4>
+    <ul>
+      <li><a href="http://localhost:3000/Homepage.html">Home</a></li>
+      <li><a href="http://localhost:3000/About.html">About Us</a></li>
+      <li><a href="#">Merchandise</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </div>
+  <div>
+    <h4>Join Zorn</h4>
+    <ul>
+      <li><a href="http://localhost:3000/Apply.html">Apply Now</a></li>
+      <li><a href="http://localhost:3000/Roster.html">Roster</a></li>
+    </ul>
+  </div>
+  <div>
+    <h4>Our Partners</h4>
+    <ul>
+      <li><a href="https://drinkrez.com/">REZ Energy</a></li>
+    </ul>
+  </div>
+</footer>
+
+<div class="copyright">
+  © 2025 Team Zorn. All rights reserved. | Privacy Policy | Terms of Service
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // Scroll animation observer
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('header, .hero, .about, .stat, .footer, .copyright').forEach(el => {
+    observer.observe(el);
+  });
+
+  // Counter updater
+  async function animateCounter(id, target) {
+    const counter = document.getElementById(id);
+    if (!counter) return;
+
+    const current = parseInt(counter.textContent) || 0;
+    if (current === target) return;
+
+    const stepTime = 20; // ms per step
+    const steps = Math.max(Math.abs(target - current), 1);
+    let i = 0;
+
+    const interval = setInterval(() => {
+      i++;
+      counter.textContent = current + Math.round((target - current) * (i / steps));
+      if (i >= steps) clearInterval(interval);
+    }, stepTime);
+  }
+
+  // Update role member count
+  async function updateRoleCount() {
+    try {
+      const res = await fetch('/api/role-count');
+      const data = await res.json();
+      animateCounter('discord-role-count', data.count);
+    } catch (err) {
+      console.error('Error fetching role count:', err);
+    }
+  }
+
+  // Update total member count
+  async function updateMemberCount() {
+    try {
+      const res = await fetch('/api/member-count');
+      const data = await res.json();
+      animateCounter('discord-member-count', data.count);
+    } catch (err) {
+      console.error('Error fetching member count:', err);
+    }
+  }
+
+  // Update all social followers
+  async function updateAllFollowers() {
+    try {
+      const res = await fetch('/api/all-followers');
+      const data = await res.json();
+      animateCounter('all-socials-count', data.count);
+    } catch (err) {
+      console.error('Error fetching all socials count:', err);
+    }
+  }
+
+  // Run all counters on load
+  updateRoleCount();
+  updateMemberCount();
+  updateAllFollowers();
+
+  // Refresh every 30 seconds
+  setInterval(() => {
+    updateRoleCount();
+    updateMemberCount();
+    updateAllFollowers();
+  }, 30000);
+});
+</script>
+
+</body>
+</html>

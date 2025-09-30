@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zorn HQ | About</title>
+  <link rel="icon" type="image/png" href="ZornLogofavicon.png" sizes="64x64">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="aboutpage">
+
+<header>
+  <a href="Homepage.html">
+    <img src="ZornLogo.png" alt="Zorn Logo">
+  </a>
+
+  <nav>
+    <div class="menu-toggle" onclick="document.querySelector('nav ul').classList.toggle('active')">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <ul>
+      <li><a href="http://localhost:3000/Homepage.html">Home</a></li>
+      <li><a href="http://localhost:3000/About.html">About</a></li>
+      <li><a href="http://localhost:3000/Roster.html">Roster</a></li>
+      <li><a href="http://localhost:3000/Partners.html">Partners</a></li>
+    </ul>
+  </nav>
+
+  <div class="header-buttons">
+    <a href="Apply.html" class="orange-btn">
+      <img src="zorn-stinks.png" alt="Icon" class="btn-icon">
+      Join Now
+    </a>
+    <button class="grey-btn">
+    <a href="http://localhost:3000/Store.html" class="grey-btn">
+      <img src="zorn-stinks2.png" alt="Icon" class="btn-icon">
+      Store
+    </a>
+    </button>
+  </div>
+</header>
+
+<section class="about-page">
+  <h1>ABOUT ZORN</h1>
+  <p class="subtitle">Oceanic esports redefined through content creation, community & creativity.</p>
+
+  <div class="about-grid">
+    <div class="about-card">
+      <h2>Who We Are</h2>
+      <p>Founded in 2025, Team Zorn creates engaging content and original videos, building a growing community of creators and fans.</p>
+    </div>
+
+    <div class="about-card">
+      <h2>Our Mission</h2>
+      <p>To elevate Oceanic esports through content creation, creativity, and community engagement.</p>
+    </div>
+
+    <div class="about-card">
+      <h2>Our Vision</h2>
+      <p>To become the leading force in OCE esports by fostering talent, innovation, and inclusivity across gaming and content creation.</p>
+    </div>
+
+    <div class="about-card">
+      <h2>Community Events</h2>
+      <p>Regular tournaments and challenges to connect and grow our community.</p>
+    </div>
+
+    <div class="about-card">
+      <h2>Content Creation</h2>
+      <p>Highlights, streams, and original Zorn media for fans worldwide.</p>
+    </div>
+
+    <div class="about-card">
+      <h2>Global Presence</h2>
+      <p>Expanding our reach through creators and competitors across the globe.</p>
+    </div>
+  </div>
+
+  <div class="milestones-separator"></div>
+
+  <section class="milestones">
+  <h1>MILESTONES</h1>
+<div class="milestones-page">
+  <div class="milestones">
+    <div class="milestone">
+      <h4>July 2025</h4>
+      <h3>Foundation</h3>
+      <p>Wolves Gaming was transformed into Team Zorn - with a bigger vision to create content, grow community, and build one of the biggest esports brands in Oceania.</p>
+    </div>
+    <div class="milestone">
+      <h4>September 2025</h4>
+      <h3>The launch of #ZornRC</h3>
+      <p>The #ZornRC was launched, opening the door for creators, streamers, editors, and designers to showcase their skills and earn themselves a place in Team Zorn.</p>
+    </div>
+    <div class="milestone">
+      <h4>October 2025</h4>
+      <h3>Website Launch</h3>
+      <p>We brought the new Zorn website online. A central hub for our creators, community, and future projects.</p>
+    </div>
+    <div class="milestone">
+      <h4>October 2025</h4>
+      <h3>Waiting</h3>
+      <p>...</p>
+    </div>
+  </div>
+</div>
+</section>
+</section>
+
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div>
+    <h4>Connect With Us</h4>
+    <ul>
+      <li><a href="https://x.com/ZornHQ">Twitter</a></li>
+      <li><a href="https://www.tiktok.com/@zornhq25">TikTok</a></li>
+      <li><a href="https://discord.gg/VNb82VRYna">Discord</a></li>
+      <li><a href="https://www.youtube.com/@ZornHQ">YouTube</a></li>
+      <li><a href="https://www.twitch.tv/zornhq">Twitch</a></li>
+    </ul>
+  </div>
+  <div>
+    <h4>Quick Links</h4>
+    <ul>
+      <li><a href="http://localhost:3000/Homepage.html">Home</a></li>
+      <li><a href="http://localhost:3000/About.html">About Us</a></li>
+      <li><a href="#">Merchandise</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </div>
+  <div>
+    <h4>Join Zorn</h4>
+    <ul>
+      <li><a href="http://localhost:3000/Apply.html">Apply Now</a></li>
+      <li><a href="http://localhost:3000/Roster.html">Roster</a></li>
+    </ul>
+  </div>
+  <div>
+    <h4>Our Partners</h4>
+    <ul>
+      <li><a href="https://drinkrez.com/">REZ Energy</a></li>
+    </ul>
+  </div>
+</footer>
+
+<div class="copyright">
+  © 2025 Team Zorn. All rights reserved. | Privacy Policy | Terms of Service
+</div>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('header, .hero, .about-content, .footer, .copyright')
+    .forEach(el => observer.observe(el));
+});
+</script>
+
+<script>
+  const milestoneCards = document.querySelectorAll('.milestone-card');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Add visible class with staggered delay
+        milestoneCards.forEach((card, index) => {
+          if (!card.classList.contains('visible')) {
+            setTimeout(() => {
+              card.classList.add('visible');
+            }, index * 200); // 200ms delay between each card
+          }
+        });
+        observer.disconnect(); // stop observing after animating
+      }
+    });
+  }, { threshold: 0.2 });
+
+  milestoneCards.forEach(card => observer.observe(card));
+</script>
+
+
+</body>
+</html>
